@@ -64,15 +64,18 @@ To accelerate adoption, the consortium will develop and maintain the following a
 - **Description**: An open standard defining the handshake, authentication, and data exchange between EMRs and AI Scribes.
 - **Function**: Eliminates custom integrations by standardizing how EMRs discover capabilities and submit audio for transcription.
 - **Example**: POST /initialize $\rightarrow$ negotiates supported templates and protocol version.
+- **Repository**: https://github.com/MedScribeAlliance/scribe-emr-protocol
 
 ### 2. The Open SCRIBE2FHIR SDK
 - **Description**: A multi-language SDK (Python, TypeScript/Node, Go, Java) designed for scribe vendors.
 - **Function**: Abstract complexity by providing simple methods to generate compliant FHIR resources from raw model outputs.
 - **Example**: `sdk.create_symptom("Fever", duration="2 days")` $\rightarrow$ returns validated FHIR JSON.
+- **Repository**: https://github.com/MedScribeAlliance/scribe2fhir
 
 ### 3. Public Adapter Library (DPGs)
 - **Vision**: Adapters for major/common facility standards will be released as Digital Public Goods (DPGs).
 - **Impact**: If a facility uses a common schema, the adapter is free and open-source, lowering the barrier to entry for smaller clinics and hospitals.
+- **Repository**: https://github.com/MedScribeAlliance/fhir2emr-adapters
 
 ### 4. Canonical Documentation
 - **Artifacts**: A central documentation hub (GitHub Pages) containing:
