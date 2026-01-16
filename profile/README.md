@@ -1,16 +1,17 @@
 # Mission Statement
 
-**To establish a vendor-agnostic, interoperable standard for integrating AI-driven Medical Scribes with Electronic Medical Records (EMR) systems in India.** By standardizing the "handshake" and data payload, we aim to accelerate innovation, reduce integration friction, and treat clinical data connectivity as a Digital Public Good (DPG).
+**To establish a vendor-agnostic, interoperable standard for integrating AI-driven Medical Scribes with Electronic Medical Records (EMR) systems in India.** By standardizing the protocol ("handshake") and data payload, we aim to accelerate innovation, reduce integration friction, and treat clinical data connectivity as a Digital Public Good (DPG).
 
 ---
 
 ## 1. Strategic Objectives
 
-The primary goal is to decouple the intelligence layer (Scribe) from the system of record (EMR), ensuring seamless data fluidity.
+The primary goal is to decouple the Voice Recoginition (Scribe) from the system of record (EMR) & Other Similar Clinical work flow system, ensuring seamless data fluidity across multiple use-cases such as OPD, Discharge Summary, Voice Triaging etc. 
 
-- **Standardized Interoperability**: Eliminate the need for custom, point-to-point contracts between every scribe vendor and EMR provider. A "write once, deploy everywhere" approach.
-- **Vendor Agnosticism & No Lock-in**: Empower healthcare facilities and scribe vendors to integrate easily without worrying about prohibitive switching costs or technical debt.
+- **Standardized Interoperability**: Eliminate the need for custom, point-to-point contracts between every scribe vendor and EMR/Health Record provider. A "write once, deploy everywhere" approach.
+- **Vendor Agnosticism & No Lock-in**: Empower healthcare facilities and users to choose easily the right scribe vendors without worrying about prohibitive switching costs or technical debt and the Selection process will become more use-case and solution centric.
 - **Reusability**: Ensure that the effort spent mapping scribe outputs to clinical formats is a one-time investment, reusable across different EMR implementations.
+- **Multiple Integration**: Health care facilities can choose multiple scribe vendors simultaniously basis capability, cost and requirements.
 - **Predictable Evaluation**: Create a deterministic output standard that allows for the rigorous, apples-to-apples evaluation of different medical scribe platforms.
 
 ## 2. Scope & Core Assumptions
@@ -31,7 +32,7 @@ Solving for discrete scribe output addresses the vast majority of high-value EMR
 The framework is composed of three distinct layers designed to handle the transport, structure, and translation of clinical data.
 
 ### A. The Data Exchange Protocol (The "Handshake")
-A high-level specification akin to the Model Context Protocol (MCP) or LSP, defining how systems discover and talk to each other.
+A high-level specification akin to the Model Context Protocol (MCP) or LSP, defining how systems discover services and talk to each other.
 
 - **Capability Discovery**: A standard mechanism for the EMR to query the Scribe: "What templates do you offer?" Basis the response, the EMR can select a template to be used during the structuring phase.
 - **Multi-Modal Transport**:
@@ -39,7 +40,7 @@ A high-level specification akin to the Model Context Protocol (MCP) or LSP, defi
 - **Interaction Models**:
     - **Synchronous/API**: REST/gRPC for real-time transactional updates.
     - **Asynchronous**: Webhooks or long-polling for batch processing.
-- **Artifact Exchange**: Secure handling of large payloads (audio files, raw transcripts) via signed URLs (e.g., S3 pre-signed links).
+- **Artifact Exchange**: Secure handling of large payloads (audio files, raw transcripts) via authentication URLs
 
 ### B. The FHIR Profiles (The "Payload")
 A strict "Profile" of the HL7 FHIR standard to ensure deterministic data exchange.
@@ -54,7 +55,7 @@ A strict "Profile" of the HL7 FHIR standard to ensure deterministic data exchang
 A translation layer ensuring the Scribe's standard output matches the EMR's specific input.
 
 - **Role**: The Adapter consumes the standardized FHIR JSON output from the Scribe and converts it into the proprietary or legacy format required by the specific EMR instance.
-- **Decoupling**: This ensures that Scribe vendors do not need to build 100 different integrations, and EMRs do not need to build 100 different parsers.
+- **Decoupling**: This ensures that Scribe vendors do not need to build multiple integrations, and EMRs do not need to build mutliple parsers.
 
 ## 4. Utilities & Ecosystem Enablers
 
@@ -79,7 +80,7 @@ To accelerate adoption, the consortium will develop and maintain the following a
 
 ### 4. Canonical Documentation
 - **Artifacts**: A central documentation hub (GitHub Pages) containing:
-    - The API Specification (OpenAPI/Swagger).
+    - The API Specification.
     - The FHIR Implementation Guide (IG).
     - Reference Architectures and "Hello World" integration examples.
 
