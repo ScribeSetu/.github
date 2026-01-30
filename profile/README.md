@@ -77,6 +77,7 @@ To accelerate adoption, the consortium will develop and maintain the following a
 - **Vision**: Adapters for major/common facility standards will be released as Digital Public Goods (DPGs).
 - **Impact**: If a facility uses a common schema, the adapter is free and open-source, lowering the barrier to entry for smaller clinics and hospitals.
 - **Repository**: https://github.com/MedScribeAlliance/fhir2emr-adapters
+- Example adapter for Eka-EMR and usage example: https://github.com/MedScribeAlliance/fhir2emr-adapters/blob/main/eka/USAGE.md
 
 ### 4. Canonical Documentation
 - **Artifacts**: A central documentation hub (GitHub Pages) containing:
